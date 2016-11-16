@@ -1,0 +1,82 @@
+﻿@model test_lightpoint.Models.Shop
+
+@{
+    ViewBag.Title = "Новый магазин";
+}
+
+<h2>Новый магазин</h2>
+<script>
+
+    jQuery(function ($) {
+        $("#Mo").mask("99:99 - 99:99");
+    });
+    jQuery(function ($) {
+        $("#Tu").mask("99:99 - 99:99");
+    });
+    jQuery(function ($) {
+        $("#We").mask("99:99 - 99:99");
+    });
+    jQuery(function ($) {
+        $("#Th").mask("99:99 - 99:99");
+    });
+    jQuery(function ($) {
+        $("#Fr").mask("99:99 - 99:99");
+    });
+    jQuery(function ($) {
+        $("#Sa").mask("99:99 - 99:99");
+    });
+    jQuery(function ($) {
+        $("#Su").mask("99:99 - 99:99");
+    });
+</script>
+<h4>@Html.ValidationMessage("MyError")</h4>
+<table>
+
+
+    @using (Html.BeginForm("AddShop", "Home", FormMethod.Post))
+    {
+        <tr>
+            <td>@Html.LabelFor(model => model.name)</td>
+            <td>@Html.TextBoxFor(model => model.name)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.adres)</td>
+            <td>@Html.TextBoxFor(model => model.adres)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Mo)</td>
+            <td>@Html.TextBoxFor(model => model.Mo, new { placeholder = "09:00 - 21:00" })  </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Tu)</td>
+            <td>@Html.TextBoxFor(model => model.Tu, new { placeholder = "09:00 - 21:00" })  </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.We)</td>
+            <td>@Html.TextBoxFor(model => model.We, new { placeholder = "09:00 - 21:00" })  </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Th)</td>
+            <td>@Html.TextBoxFor(model => model.Th, new { placeholder = "09:00 - 21:00" })  </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Fr)</td>
+            <td>@Html.TextBoxFor(model => model.Fr, new { placeholder = "09:00 - 21:00" })  </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Sa)</td>
+            <td>@Html.TextBoxFor(model => model.Sa, new { placeholder = "09:00 - 21:00" })  </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Su)</td>
+            <td>@Html.TextBoxFor(model => model.Su, new { placeholder = "09:00 - 21:00" })  </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Добавить" /></td>
+        </tr>
+
+    }
+</table>
+<input type="button" title="Назад" value="Назад" onclick="location.href='@Url.Action("Index", "Home")'" />
+
+

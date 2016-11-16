@@ -1,0 +1,35 @@
+﻿@model test_lightpoint.Models.Product
+
+@{
+    ViewBag.Title = "Новый товар";
+
+}
+
+<h2>Добавить продукт</h2>
+<h4>@Html.ValidationMessage("MyError")</h4>
+<table>
+
+
+    @using (Html.BeginForm("AddProduct", "Home", FormMethod.Post))
+{
+    <tr>
+        <td>@Html.LabelFor(model => model.name)</td>
+        <td>@Html.TextBoxFor(model => model.name)</td>
+    </tr>
+        
+     <tr>
+        <td>@Html.LabelFor(model => model.desctiption)</td>
+        <td>@Html.TextBoxFor(model => model.desctiption)</td>
+    </tr>
+              
+     <tr>
+        <td>@Html.LabelFor(model => model.shopId)</td>
+        <td>@Html.DropDownListFor(model => model.shopId.name, ViewBag.dropDownList as SelectList)</td>
+    </tr> 
+    <tr>
+        <td><input type="submit" value="Добавить" /></td>
+    </tr> 
+        
+}
+</table>
+<input type="button" title="Назад" value="Назад" onclick="location.href='@Url.Action("Index", "Home")'" />

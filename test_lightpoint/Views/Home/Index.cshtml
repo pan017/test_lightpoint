@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Магазины";
+    int i = 0;
+}
+
+<h2>Магазины</h2>
+@Html.ActionLink("Добавить продукт", "AddProduct")
+<br />
+@Html.ActionLink("Добавить магазин", "AddShop")
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Название магазина</th>
+            <th>Время работы</th>
+            <th>Адрес</th>
+            <th>Товары</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.shopList)
+        {
+          
+                        <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>
+
+                    Пн.: @item.Mo
+                    Вт.: @item.Tu
+                    Ср.: @item.We
+                    Чт.: @item.Th
+                    Пт.: @item.Fr <br />
+                    Сб.: @item.Sa
+                    Вс.: @item.Su
+
+
+                </td>
+                <td>@item.adres</td>
+                <td id="prod_@item.id">
+                    @Ajax.ActionLink("Показать товары", "ViewProduct", new { shopId = item.id }, new AjaxOptions { UpdateTargetId = "preView" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div id="preView">
+
+
+</div>
